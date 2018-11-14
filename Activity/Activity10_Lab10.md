@@ -44,7 +44,7 @@ table(dat2)
 
 ### Question 3
 
-Use sample() function to generate 1000 pseudo-random integers which take values from 1 through 10. Use the `table()` function to check whether the observed frequencies for each value are close to what you expect.
+Use `sample()` function to generate 1000 pseudo-random integers which take values from 1 through 10. Use the `table()` function to check whether the observed frequencies for each value are close to what you expect.
 
 ``` r
 set.seed(1)

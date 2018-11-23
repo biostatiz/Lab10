@@ -35,7 +35,7 @@ q2 <- function(n, delta, sd, sig.level) {
     B <- 10000
     power <- replicate(B, {
         smpl <- rnorm(n, delta, sd)
-        ttest <- as.numeric(t.test(smpl)$p.value < sig.level)
+        test <- as.numeric(t.test(smpl, conf.level = (1 - sig.level))$p.value < sig.level)
     })
     power_sum <- sum(power) / B
     list(n = n, delta = delta, sd = sd, sig.level = sig.level, 
@@ -46,7 +46,7 @@ q2 <- function(n, delta, sd, sig.level) {
 q2(n = 30, delta = 0.5, sd = 1, sig.level = 0.05)$power %>% round(4)
 ```
 
-    ## [1] 0.7541
+    ## [1] 0.7547
 
 ``` r
 power.t.test(n = 30, delta = 0.5, sd = 1, sig.level = 0.05, type = 'one.sample')$power %>% round(4)
